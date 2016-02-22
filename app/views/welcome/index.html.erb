@@ -5,4 +5,4 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
 
-<%= link_to 'My Articles', controller: 'articles' %>
+<%= link_to 'My Articles', user_articles_path(current_user) %>

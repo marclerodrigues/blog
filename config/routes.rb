@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :articles do
-    resources :comments
+  resources :users do
+    resources :articles do
+      resources :comments
+    end
   end
 
   devise_for :users

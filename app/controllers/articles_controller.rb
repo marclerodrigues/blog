@@ -1,45 +1,45 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    @articles = Article.all
+    @articles = current_user.articles.all
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.build
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to user_article_path(current_user.id, @article)
     else
       render 'new'
     end
   end
 
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to user_article_path(current_user.id, @article)
     else
       render 'edit'
     end
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path
+    redirect_to user_articles_path
   end
 
 
