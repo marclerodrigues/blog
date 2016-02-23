@@ -15,13 +15,13 @@
 
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %><br>
+    <%= f.text_field :title, :class => "form-control" %><br>
   </p>
   <p>
     <%= f.label :text %><br>
-    <%= f.text_area :text %><br>
+    <%= f.text_area :text, :class => "form-control", :rows => "20" %><br>
   </p>
   <p>
-    <%= f.submit %><br>
+    <%= f.submit :class => "btn btn-primary" %><br>
   </p>
 <% end %>

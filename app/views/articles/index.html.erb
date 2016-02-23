@@ -1,20 +1,34 @@
-<h1>Listing Articles</h1>
+<h1>
+  Your Articles
+  <%= link_to 'New Article', new_user_article_path, :class => "btn btn-success"%>
+</h1>
 
-<table>
+<table class="table table-bordered">
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th width="150px">Actions</th>
   </tr>
-  <% @articles.each do |article| %>
+  <% unless @articles.nil? %>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.text %></td>
+        <td>
+          <%= link_to 'Show', user_article_path(current_user.id, article)%>
+          <%= link_to 'Edit', edit_user_article_path(current_user.id, article)%>
+          <%= link_to 'Destroy', user_article_path(current_user.id, article), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  <% else %>
     <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', user_article_path(current_user.id, article)%></td>
-      <td><%= link_to 'Edit', edit_user_article_path(current_user.id, article)%></td>
-      <td><%= link_to 'Destroy', user_article_path(current_user.id, article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td colspan="3" class="bold text-center">
+        <h3>There are no articles!</h3>
+      </td>
     </tr>
   <% end %>
 
-</table>
 
-<%= link_to 'New article', new_user_article_path %>
+
+</table>

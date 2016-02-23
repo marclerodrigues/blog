@@ -1,18 +1,28 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment: </h2>
-<%= render 'comments/form' %>
-
-<%= link_to 'Edit', edit_user_article_path(current_user.id, @article) %>
-<%= link_to 'Back', user_articles_path %>
+<div class="container">
+  <div class="col-md-4 col-sm-4 col-lg-4">
+    <img src="http://vignette3.wikia.nocookie.net/p__/images/8/8c/Ruby_Jewel.png/revision/latest?cb=20140603161923&path-prefix=protagonist" class="image-responsive image-circle"><br>
+    Email: <%= current_user.email %>
+  </div>
+  <div class="col-md-8 col-sm-8 col-lg-8">
+    <p>
+      <h2><%= @article.title.capitalize %></h2>
+    </p>
+    <p>
+      <%= @article.text %>
+    </p>
+    <div>
+      <h4>Comments</h4>
+      <p>
+        <%= render @article.comments %>
+      </p>
+    </div>
+    <div>
+      <h5>Add a comment: </h5>
+      <p>
+        <%= render 'comments/form' %>
+      </p>
+    </div>
+    <%= link_to 'Edit', edit_user_article_path(current_user.id, @article), :class => "btn btn-primary" %>
+    <%= link_to 'Back', user_articles_path, :class => "btn btn-primary"  %>
+  </div>
+</div>
