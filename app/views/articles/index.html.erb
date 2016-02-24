@@ -9,7 +9,7 @@
     <th>Text</th>
     <th width="150px">Actions</th>
   </tr>
-  <% unless @articles.nil? %>
+  <% unless @articles.count == 0 %>
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
