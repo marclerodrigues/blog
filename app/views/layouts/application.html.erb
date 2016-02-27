@@ -37,10 +37,6 @@
               <li>
                 <%= link_to 'New Article', new_user_article_path(current_user) %>
               </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                <a href="#">Should see</a>
-              </li>
             </ul>
           </li>
         </ul>
@@ -53,8 +49,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="#">Your Profile</a>
-                  <a href="#">Account Settings</a>
+                  <%= link_to 'Account Settings', edit_user_registration_path %>
                 </li>
                 <li role="separtor" class="divider"></li>
                 <li>
