@@ -1,2 +1,2 @@
 # blog
-A blogging platform to promote blogger's interaction.
+A multi-tenant blogging platform to promote blogger's interaction.
