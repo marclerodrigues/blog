@@ -12,6 +12,7 @@ protected
     #devise_parameter_sanitizer.for(:sign_up) << :first_name << :access
     devise_parameter_sanitizer.for(:account_update) << :first_name<< :access
     devise_parameter_sanitizer.for(:account_update) << :last_name<< :access
+    devise_parameter_sanitizer.for(:account_update) << :about_me<< :access
   end
 
 end
