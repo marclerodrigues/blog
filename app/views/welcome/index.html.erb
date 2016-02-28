@@ -2,7 +2,7 @@
   <h1>Blog</h1>
   <h3>make connections</h3>
 </div>
-<% if @articles %>
+<% unless @articles.nil? %>
   <% @articles.reverse.each do |article| %>
     <div class="col-md-4 col-sm-4 col-lg-4">
       <h1>
