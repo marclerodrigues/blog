@@ -2,3 +2,17 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.centered_box {
+  width: 100%;
+  background-color: #ebebe0;
+  text-align: center;
+}
+
+.centered_box h1 {
+  padding-top: 35px;
+}
+
+.centered_box h3 {
+  padding-bottom: 35px;
+}

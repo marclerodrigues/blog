@@ -1,12 +1,20 @@
-<% @articles.reverse.each do |article| %>
-  <div class="col-md-4 col-sm-4 col-lg-4">
-    <h1>
-      <%= article.title.capitalize %>
-    </h1>
-    <span class="span">
-    <% @user = @users.find(article.user_id) %>
-      By: <%= @user.email %>, at <%= article.created_at %>
-    </span>
-    <%= link_to 'Read more...', user_article_path(@user, article)%>
-  </div>
+<div class="centered_box">
+  <h1>Blog</h1>
+  <h3>make connections</h3>
+</div>
+<% if @articles %>
+  <% @articles.reverse.each do |article| %>
+    <div class="col-md-4 col-sm-4 col-lg-4">
+      <h1>
+        <%= article.title.capitalize %>
+      </h1>
+      <span class="span">
+      <% @user = @users.find(article.user_id) %>
+        By: <%= @user.email %>, at <%= article.created_at %>
+      </span>
+      <%= link_to 'Read more...', user_article_path(@user, article)%>
+    </div>
+  <% end %>
+<% else %>
+  <h2>There are no post on our platform!</h2>
 <% end %>
